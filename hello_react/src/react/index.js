@@ -5,7 +5,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Hello from "./page/Hello.js"
-
+import TodoList from './state/ToDoList.js'
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<Hello />, rootElement);
+
+const store = new TodoList()
+ReactDOM.render(<Hello todoList={store}/>, rootElement);
