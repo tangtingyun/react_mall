@@ -4,14 +4,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// var webpack = require('webpack');
-
-
+var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        index: './src/index.js',
-        react: './src/react/index.js'
+        index: './src/react/index.js'
     },
     output: {
         filename: '[name].[hash:8].js',
@@ -21,8 +18,15 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        host: "0.0.0.0",
+        port: 9090,
+        inline: true,
+        hot: true
+    },
     plugins: [
-        // new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: './index.html'
