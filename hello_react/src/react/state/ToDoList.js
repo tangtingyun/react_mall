@@ -2,17 +2,19 @@
  * Created by zhangyifei on 18/8/12.
  */
 
-import {observable, computed, autorun} from "mobx"
+import {observable, computed, action} from "mobx"
 
-export default class TodoList {
+export class TodoList {
     @observable todos = [];
 
     @computed get unfinishedTodoCount() {
         console.log("===call this=====")
         return this.todos.filter(todo => !todo.finished).length;
     }
+
+    @action insertTod(todo) {
+        this.todos.push(todo);
+    }
 }
 
-autorun(function () {
-    console.log("this call autorun")
-})
+export default new TodoList();

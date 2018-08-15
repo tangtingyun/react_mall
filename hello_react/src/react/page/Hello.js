@@ -3,13 +3,13 @@
  */
 
 import React from 'react'
-import {observer} from "mobx-react";
+import {observer, inject} from "mobx-react";
 import Todo from "../state/Todo.js"
 import ToDoView from './ToDoView.js'
 
+@inject('todoStore')
 @observer
 export default class Hello extends React.Component {
-
 
     constructor(props) {
         super(props)
@@ -19,7 +19,7 @@ export default class Hello extends React.Component {
         let todo = new Todo()
         todo.finished = false
         todo.title = "Hello Mobx"
-        this.props.todoList.todos.push(todo)
+        this.props.todoStore.insertTod(todo)
     }
 
     render() {
@@ -27,7 +27,7 @@ export default class Hello extends React.Component {
             <div>
                 <ul>
                     {
-                        this.props.todoList.todos.map(todo => {
+                        this.props.todoStore.todos.map(todo => {
                             return (
                                 <ToDoView todo={todo} key={todo.id}/>
                             )
@@ -35,7 +35,7 @@ export default class Hello extends React.Component {
                     }
                 </ul>
                 <div onClick={this.tapMe}>Click Me</div>
-                Tasks left: {this.props.todoList.unfinishedTodoCount}
+                Tasks left: {this.props.todoStore.unfinishedTodoCount}
             </div>
         )
     }

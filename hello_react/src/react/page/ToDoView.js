@@ -2,13 +2,12 @@
  * Created by zhangyifei on 18/8/12.
  */
 
-import  React from 'react'
+import React from 'react'
 import {observer} from "mobx-react";
 
 
 @observer
 export default class ToDoView extends React.Component {
-
 
     render() {
         console.log(this.props.todo.finished)
