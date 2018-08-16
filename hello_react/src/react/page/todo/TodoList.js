@@ -4,21 +4,21 @@
 
 import React from 'react'
 import {observer, inject} from "mobx-react";
-import Todo from "../state/Todo.js"
-import ToDoView from './ToDoView.js'
+import ToDoItem from "../stores/todoStore/item.js"
+import Item from './Item.js'
 
 @inject('todoStore')
 @observer
-export default class Hello extends React.Component {
+export default class TodoList extends React.Component {
 
     constructor(props) {
         super(props)
     }
 
     tapMe = () => {
-        let todo = new Todo()
+        let todo = new ToDoItem()
         todo.finished = false
-        todo.title = "Hello Mobx"
+        todo.title = "Todo Mobx"
         this.props.todoStore.insertTod(todo)
     }
 
@@ -29,7 +29,7 @@ export default class Hello extends React.Component {
                     {
                         this.props.todoStore.todos.map(todo => {
                             return (
-                                <ToDoView todo={todo} key={todo.id}/>
+                                <Item todo={todo} key={todo.id}/>
                             )
                         })
                     }

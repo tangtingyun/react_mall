@@ -7,7 +7,7 @@ import {observer} from "mobx-react";
 
 
 @observer
-export default class ToDoView extends React.Component {
+export default class Item extends React.Component {
 
     render() {
         console.log(this.props.todo.finished)

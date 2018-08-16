@@ -4,22 +4,25 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import Hello from "./page/Hello.js"
-import todoStore from './state/ToDoList.js'
-import {autorun} from "mobx";
+import App from  "./page/main"
+import androidStore from './stores/androidStore'
+import { autorun } from "mobx";
+import { BrowserRouter } from "react-router-dom";
 
-import {Provider} from 'mobx-react';
+import { Provider } from 'mobx-react';
 
 const rootElement = document.getElementById("root");
 const stores = {
-    todoStore
+    androidStore
 };
 
-
-autorun(function () {
-    console.log(`${todoStore.todos.length}`)
-})
+// autorun(function () {
+//     console.log(`${todoStore.todos.length}`)
+// })
 ReactDOM.render(
     <Provider {...stores}>
-        <Hello/>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>, rootElement);
+
