@@ -1,9 +1,9 @@
-.item_img{
+.item_img {
     width: 300px;
     height: 300px;
 }
 
-.item_header{
+.item_header {
     background-color: blue;
-    margin: 20;
+    margin: 20px;
 }

@@ -8,7 +8,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        index: './src/react/index.js'
+        index: './src/react_hooks/index.js'
     },
     output: {
         filename: '[name].[hash:8].js',
