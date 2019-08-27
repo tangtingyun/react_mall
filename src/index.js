@@ -1,11 +1,22 @@
-/**
- *
- * Created by zhangyifei on 18/8/8.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import MapPage from './page/mapPage';
+import * as serviceWorker from './serviceWorker';
 
-var am = () => {
-    console.log("index.js")
-    return "aa"
-}
+ReactDOM.render(<MapPage/>, document.getElementById('root'));
 
-am()
+// ReactDOM.render(
+//     React.createElement(
+//         'div',
+//         null,
+//         'Hello React',
+//     ),
+//     document.getElementById('root')
+// )
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

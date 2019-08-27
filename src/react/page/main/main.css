@@ -1,9 +1,0 @@
-.top{
-    display: flex;
-    background-color: aqua;
-}
-.tab{
-    font-size: large;
-    flex: 1;
-    text-align: center;
-}
