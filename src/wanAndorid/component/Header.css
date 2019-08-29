@@ -1,0 +1,64 @@
+.header-container {
+    height: 60px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.header-container > img {
+    width: 40px;
+    height: 40px;
+    background: #61dafb;
+}
+
+.header-container .header-item {
+    margin-left: 20px;
+    font-size: 20px;
+    color: mediumseagreen;
+    cursor: pointer;
+    position: relative;
+}
+
+.header-item:first-of-type {
+    margin-left: 50px;
+}
+
+.header-container .header-select {
+    font-size: 24px;
+}
+
+.header-container .header-select:after {
+    position: absolute;
+    content: '';
+    width: 90%;
+    background: black;
+    height: 1px;
+    left: 5%;
+    bottom: -5px;
+}
+
+.header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-right input {
+    margin-right: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.login-state span {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-state span:nth-child(2) {
+    margin-left: 5px;
+    margin-right: 5px;
+}

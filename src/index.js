@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import MapPage from './page/mapPage';
+import WanAndroid from './wanAndorid/wanAndroid';
+import {BrowserRouter as Router} from "react-router-dom";
+
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<MapPage/>, document.getElementById('root'));
+ReactDOM.render(
+    <Router>
+        <WanAndroid/>
+    </Router>
+    , document.getElementById('root'));
 
 // ReactDOM.render(
 //     React.createElement(
