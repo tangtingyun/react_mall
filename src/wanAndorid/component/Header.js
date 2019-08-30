@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
 import './Header.css'
 
-function Header () {
+import {withRouter} from 'react-router-dom';
+
+
+function Header (props) {
+
+    console.log('-----------')
+    console.log(props)
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const headerArr = [
@@ -14,13 +21,26 @@ function Header () {
         "项目分类",
         "工具"
     ]
+    const clickHandler = (index) => {
+        if (index === currentIndex) return
+        switch (index) {
+            case 0:
+                props.history.push("/wanHome")
+                break;
+            case 1:
+                props.history.push("/wanCategory")
+                break
+        }
+        setCurrentIndex(index)
+    }
     return (
         <div className="header-container">
-            <img alt=""/>
+            <span>{props.name}</span>
             {
                 headerArr.map((todo, index) =>
-                    <div onClick={() => setCurrentIndex(index)}
-                         className={`header-item ${index == currentIndex ? "header-select" : ""}`}>{todo}</div>
+                    <div key={index}
+                         onClick={() => clickHandler(index)}
+                         className={`header-item ${index === currentIndex ? "header-select" : ""}`}>{todo}</div>
                 )
             }
             <div className="header-right">
@@ -37,4 +57,13 @@ function Header () {
     )
 }
 
-export default Header
+Header.defaultProps = {
+    name: "wanAndroid"
+}
+
+Header.propTypes = {
+    name: PropTypes.string
+}
+
+
+export default withRouter(Header);
