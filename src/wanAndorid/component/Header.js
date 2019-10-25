@@ -8,8 +8,6 @@ import {withRouter} from 'react-router-dom';
 
 function Header (props) {
 
-    console.log('-----------')
-    console.log(props)
 
     const [currentIndex, setCurrentIndex] = useState(0)
     const headerArr = [

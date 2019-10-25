@@ -19,8 +19,7 @@ function WanHome () {
     }
 
     const clickItem = (value) => {
-        console.log(value)
-        window.location = value.url
+        window.open(value.url, "_blank")
     }
 
     return (

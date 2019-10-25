@@ -1,17 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import WanAndroid from './wanAndorid/WanAndroid';
 import {BrowserRouter as Router} from "react-router-dom";
+import {renderRoutes} from "react-router-config";
+import Counter from './page/Counter'
+import WanHome from './wanAndorid/view/WanHome.js'
+import WanCategory from './wanAndorid/view/WanCategory.js'
+import ToDoList from './hookTodo'
 
 import * as serviceWorker from './serviceWorker';
 
+const routes = [
+    {
+        path: "/counter",
+        component: Counter
+    },
+    {
+        path: "/todoList",
+        component: ToDoList
+    },
+    {
+        component: WanAndroid,
+        routes: [
+            {
+                path: "/",
+                exact: true,
+                component: WanHome
+            },
+            {
+                path: "/wanHome",
+                exact: true,
+                component: WanHome
+            },
+            {
+                path: "/wanCategory",
+                component: WanCategory,
+            }
+        ]
+    }
+];
+
 ReactDOM.render(
     <Router>
-        <WanAndroid/>
-    </Router>
-    , document.getElementById('root'));
+        {renderRoutes(routes)}
+    </Router>,
+    document.getElementById('root')
+)
 
 // ReactDOM.render(
 //     React.createElement(
